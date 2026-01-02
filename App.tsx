@@ -6,6 +6,7 @@ import { StorySection } from './components/StorySection';
 import { ScienceSection } from './components/ScienceSection';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
+import { DebugConsole, pushLog } from './components/DebugConsole';
 
 const App: React.FC = () => {
   const [hasKey, setHasKey] = useState(true);
@@ -15,19 +16,22 @@ const App: React.FC = () => {
       const aistudio = (window as any).aistudio;
       if (aistudio) {
         const active = await aistudio.hasSelectedApiKey();
-        setHasKey(active);
+        if (active !== hasKey) {
+          setHasKey(active);
+          pushLog(`API Key Status Changed: ${active ? 'Active' : 'Inactive'}`, active ? 'success' : 'info');
+        }
       }
     };
 
     checkKeyStatus();
-    // Poll every 2 seconds to handle cases where the user closes the dialog
     const interval = setInterval(checkKeyStatus, 2000);
     return () => clearInterval(interval);
-  }, []);
+  }, [hasKey]);
 
   const handleOpenKey = async () => {
     const aistudio = (window as any).aistudio;
     if (aistudio) {
+      pushLog('Opening API Key Selection Dialog...', 'info');
       await aistudio.openSelectKey();
       setHasKey(true);
     }
@@ -67,6 +71,7 @@ const App: React.FC = () => {
       </main>
 
       <Footer />
+      <DebugConsole />
     </div>
   );
 };
