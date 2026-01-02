@@ -11,12 +11,12 @@ interface AIImageProps {
 
 export const AIImage: React.FC<AIImageProps> = ({ prompt, alt, className, aspectRatio = "16:9" }) => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [needsKey, setNeedsKey] = useState(false);
 
   const generateImage = useCallback(async () => {
-    // 1. Verificação de chave no window.aistudio
+    // 1. Mandatory Check for API Key Selection
     const aistudio = (window as any).aistudio;
     if (aistudio) {
       const hasKey = await aistudio.hasSelectedApiKey();
@@ -27,56 +27,56 @@ export const AIImage: React.FC<AIImageProps> = ({ prompt, alt, className, aspect
       }
     }
 
-    const apiKey = process.env.API_KEY;
-    if (!apiKey) {
-      setNeedsKey(true);
-      setLoading(false);
-      return;
-    }
-
     try {
       setLoading(true);
       setError(null);
       setNeedsKey(false);
 
-      const ai = new GoogleGenAI({ apiKey });
+      // 2. Create Instance Right Before Use (Must use process.env.API_KEY)
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
-      // Prompt ultra-neutro para evitar filtros de segurança de "saúde"
-      const safePrompt = `Professional photography of ${prompt}, high resolution, natural sunlight, cinematic composition, award winning`;
+      // 3. Prompt Engineering: Ultra-safe, high-quality descriptive terms
+      // Avoiding medical terms to bypass potential safety filter over-triggering
+      const enhancedPrompt = `High-end commercial lifestyle photography, cinematic lighting, shallow depth of field, vibrant but natural colors. Scene: ${prompt}`;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash-image',
+        model: 'gemini-3-pro-image-preview',
         contents: {
-          parts: [{ text: safePrompt }],
+          parts: [{ text: enhancedPrompt }],
         },
         config: {
           imageConfig: {
-            aspectRatio: aspectRatio
+            aspectRatio: aspectRatio,
+            imageSize: "1K"
           },
         },
       });
 
-      let foundImage = false;
+      let base64Data: string | null = null;
       const parts = response.candidates?.[0]?.content?.parts;
       
       if (parts) {
         for (const part of parts) {
           if (part.inlineData?.data) {
-            setImageUrl(`data:image/png;base64,${part.inlineData.data}`);
-            foundImage = true;
+            base64Data = part.inlineData.data;
             break;
           }
         }
       }
 
-      if (!foundImage) throw new Error("No image data");
+      if (base64Data) {
+        setImageUrl(`data:image/png;base64,${base64Data}`);
+      } else {
+        throw new Error("No image data in response");
+      }
 
     } catch (err: any) {
-      console.error("AI Image error:", err);
-      if (err.message?.includes("entity was not found") || err.message?.includes("API key")) {
+      console.error("Image Generation Error:", err);
+      const msg = err.message || "";
+      if (msg.includes("Requested entity was not found") || msg.includes("API_KEY") || msg.includes("API key")) {
         setNeedsKey(true);
       } else {
-        setError("Generation failed");
+        setError("Unable to render visual at this time.");
       }
     } finally {
       setLoading(false);
@@ -87,74 +87,83 @@ export const AIImage: React.FC<AIImageProps> = ({ prompt, alt, className, aspect
     generateImage();
   }, [generateImage]);
 
-  // Listener para quando o usuário seleciona a chave no banner global do App.tsx
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      const aistudio = (window as any).aistudio;
-      if (needsKey && aistudio) {
-        const hasKey = await aistudio.hasSelectedApiKey();
-        if (hasKey) generateImage();
-      }
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [needsKey, generateImage]);
-
-  const handleManualKeySelect = async () => {
+  const handleOpenKeySelector = async () => {
     const aistudio = (window as any).aistudio;
     if (aistudio) {
       await aistudio.openSelectKey();
+      // Proceed immediately (as per instructions, assume success)
+      setNeedsKey(false);
       generateImage();
     }
   };
 
   if (needsKey) {
     return (
-      <div className={`bg-blue-50 border-2 border-dashed border-blue-200 flex flex-col items-center justify-center rounded-xl p-6 text-center group hover:bg-blue-100 transition-all ${className}`}>
-        <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-          <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className={`bg-slate-50 border-2 border-dashed border-slate-200 flex flex-col items-center justify-center rounded-2xl p-8 text-center transition-colors hover:border-blue-300 group ${className}`}>
+        <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-600 group-hover:scale-110 transition-transform">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
         </div>
-        <p className="text-[11px] font-bold text-blue-800 mb-2 uppercase tracking-tighter">Imagens Cinematográficas</p>
+        <h3 className="text-sm font-bold text-slate-800 mb-1">Interactive Story Visuals</h3>
+        <p className="text-xs text-slate-500 mb-4 max-w-[200px]">Connect your API key to generate custom cinematic visuals for this story.</p>
         <button 
-          onClick={handleManualKeySelect}
-          className="bg-blue-600 text-white text-[10px] font-bold py-1.5 px-4 rounded-full shadow-sm hover:bg-blue-700 active:scale-95 transition-all"
+          onClick={handleOpenKeySelector}
+          className="bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold py-2 px-6 rounded-full shadow-md transition-all active:scale-95 uppercase tracking-wider"
         >
-          ATIVAR VISUAIS
+          Enable Images
         </button>
+        <a 
+          href="https://ai.google.dev/gemini-api/docs/billing" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="mt-3 text-[9px] text-blue-500 hover:underline"
+        >
+          Requires Paid GCP Project
+        </a>
       </div>
     );
   }
 
   if (loading) {
     return (
-      <div className={`bg-gray-100 animate-pulse flex flex-col items-center justify-center rounded-xl overflow-hidden border border-gray-200 ${className}`}>
-        <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-        <p className="text-[9px] font-black text-gray-400 mt-3 uppercase tracking-[0.2em]">Criando Cena...</p>
+      <div className={`bg-slate-100 animate-pulse flex flex-col items-center justify-center rounded-2xl overflow-hidden border border-slate-200 ${className}`}>
+        <div className="relative w-10 h-10">
+          <div className="absolute inset-0 border-4 border-blue-200 rounded-full"></div>
+          <div className="absolute inset-0 border-4 border-blue-600 rounded-full border-t-transparent animate-spin"></div>
+        </div>
+        <p className="text-[10px] font-black text-slate-400 mt-4 uppercase tracking-[0.3em]">Visualizing...</p>
       </div>
     );
   }
 
   if (error || !imageUrl) {
-    // Fallback elegante que mantém a estética do site sem depender da API
     return (
-      <div className={`bg-gradient-to-br from-blue-500 to-blue-700 flex flex-col items-center justify-center rounded-xl shadow-inner p-8 text-center text-white ${className}`}>
-        <svg className="w-12 h-12 opacity-20 mb-2" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      <div className={`bg-gradient-to-br from-slate-100 to-slate-200 flex flex-col items-center justify-center rounded-2xl border border-slate-200 p-10 text-center ${className}`}>
+        <svg className="w-16 h-16 text-slate-300 mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
         </svg>
-        <p className="text-sm font-serif italic opacity-80">"{alt}"</p>
+        <p className="text-slate-400 text-xs italic font-medium">Visualizing the story: {alt}</p>
+        {!needsKey && (
+          <button 
+            onClick={() => generateImage()}
+            className="mt-4 text-[10px] text-blue-600 font-bold uppercase hover:underline"
+          >
+            Retry Generation
+          </button>
+        )}
       </div>
     );
   }
 
   return (
-    <div className="relative group overflow-hidden rounded-xl shadow-2xl border border-gray-100">
+    <div className="relative group overflow-hidden rounded-2xl shadow-xl border border-slate-100">
       <img 
         src={imageUrl} 
         alt={alt} 
         className={`w-full object-cover transition-all duration-1000 group-hover:scale-105 ${className}`} 
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
     </div>
   );
 };
