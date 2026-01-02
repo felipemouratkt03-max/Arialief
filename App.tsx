@@ -1,11 +1,10 @@
-
 import React from 'react';
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { StorySection } from './components/StorySection';
-import { ScienceSection } from './components/ScienceSection';
-import { CTASection } from './components/CTASection';
-import { Footer } from './components/Footer';
+import { Header } from './components/Header.tsx';
+import { Hero } from './components/Hero.tsx';
+import { StorySection } from './components/StorySection.tsx';
+import { ScienceSection } from './components/ScienceSection.tsx';
+import { CTASection } from './components/CTASection.tsx';
+import { Footer } from './components/Footer.tsx';
 
 const App: React.FC = () => {
   return (
