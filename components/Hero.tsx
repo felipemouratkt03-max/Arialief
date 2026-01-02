@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { IMAGE_URLS } from '../App';
+import { CONFIG } from '../config';
 
 export const Hero: React.FC = () => {
   return (
@@ -15,20 +15,22 @@ export const Hero: React.FC = () => {
         "I’ll never forget the morning the fire finally went out. This is how I reclaimed my mobility after years of 'walking on pins'."
       </p>
       
-      <div className="mt-12 space-y-4">
-        <div className="relative overflow-hidden rounded-[2rem] shadow-xl border border-white bg-slate-100">
-          <img 
-            src={IMAGE_URLS.hero_feet_grass} 
-            alt="Bare feet touching morning grass" 
-            className="w-full h-[400px] md:h-[600px] object-cover transition-opacity duration-500"
-            onLoad={(e) => (e.currentTarget.style.opacity = '1')}
-            style={{ opacity: 0 }}
-          />
+      {CONFIG.images.hero && (
+        <div className="mt-12 space-y-4">
+          <div className="relative overflow-hidden rounded-[2rem] shadow-xl border border-white bg-slate-100">
+            <img 
+              src={CONFIG.images.hero} 
+              alt="Bare feet touching morning grass" 
+              className="w-full h-[400px] md:h-[600px] object-cover transition-opacity duration-500"
+              onLoad={(e) => (e.currentTarget.style.opacity = '1')}
+              style={{ opacity: 0 }}
+            />
+          </div>
+          <p className="text-[10px] text-slate-300 uppercase tracking-widest font-bold">
+            [Image Prompt]: A close-up of an older woman’s bare feet gently touching green grass.
+          </p>
         </div>
-        <p className="text-[10px] text-slate-300 uppercase tracking-widest font-bold">
-          [Image Prompt]: A close-up of an older woman’s bare feet gently touching green grass in early morning light. Her expression shows quiet wonder.
-        </p>
-      </div>
+      )}
     </section>
   );
 };
