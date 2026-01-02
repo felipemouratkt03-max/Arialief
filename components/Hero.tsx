@@ -5,7 +5,7 @@ import { CONFIG } from '../config';
 export const Hero: React.FC = () => {
   return (
     <section className="text-center space-y-8">
-      <div className="inline-block px-4 py-1.5 bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-[0.2em] rounded-full">
+      <div className="inline-block px-4 py-1.5 bg-green-50 text-green-600 text-xs font-bold uppercase tracking-[0.2em] rounded-full">
         Real User Story
       </div>
       <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-tight tracking-tight">

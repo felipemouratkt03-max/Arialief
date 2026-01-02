@@ -9,7 +9,7 @@ import { Footer } from './components/Footer';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center bg-[#fdfdfd] selection:bg-blue-100">
+    <div className="min-h-screen flex flex-col items-center bg-[#fdfdfd] selection:bg-green-100">
       <Header />
       
       <main className="w-full max-w-4xl px-4 sm:px-6 py-12">

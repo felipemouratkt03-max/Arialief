@@ -9,9 +9,9 @@ export const Footer: React.FC = () => {
           © {new Date().getFullYear()} NerveHealth Insights. All rights reserved.
         </p>
         <div className="flex justify-center space-x-6 text-xs font-medium text-gray-400">
-          <a href="#" className="hover:text-blue-600">Privacy Policy</a>
-          <a href="#" className="hover:text-blue-600">Terms of Service</a>
-          <a href="#" className="hover:text-blue-600">Contact Us</a>
+          <a href="#" className="hover:text-green-600 transition-colors">Privacy Policy</a>
+          <a href="#" className="hover:text-green-600 transition-colors">Terms of Service</a>
+          <a href="#" className="hover:text-green-600 transition-colors">Contact Us</a>
         </div>
         <p className="mt-8 text-[10px] text-gray-300 max-w-xl mx-auto leading-relaxed">
           The information provided on this website is for educational purposes only and is not intended as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
