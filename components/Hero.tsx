@@ -16,7 +16,7 @@ export const Hero: React.FC = () => {
       </p>
       
       {CONFIG.images.hero && (
-        <div className="mt-12 space-y-4">
+        <div className="mt-12">
           <div className="relative overflow-hidden rounded-[2rem] shadow-xl border border-white bg-slate-100">
             <img 
               src={CONFIG.images.hero} 
@@ -26,9 +26,6 @@ export const Hero: React.FC = () => {
               style={{ opacity: 0 }}
             />
           </div>
-          <p className="text-[10px] text-slate-300 uppercase tracking-widest font-bold">
-            [Image Prompt]: A close-up of an older woman’s bare feet gently touching green grass.
-          </p>
         </div>
       )}
     </section>
