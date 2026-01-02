@@ -10,25 +10,25 @@ export const ScienceSection: React.FC = () => {
         The reason this approach worked for me wasn't magic—it was the synergy of four key ingredients that finally gave my nerves the "peace and quiet" they needed to function normally again.
       </p>
 
-      <div className="space-y-6 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
         <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
           <h3 className="text-xl font-bold text-gray-900 mb-2">Palmitoylethanolamide (PEA)</h3>
-          <p className="text-lg">Think of PEA as the "volume knob" for your nerves. It is clinically shown to quiet overactive pain signals and support a healthy inflammatory response in the body.</p>
+          <p className="text-lg">Think of PEA as the "volume knob" for your nerves. It is clinically shown to quiet overactive pain signals.</p>
         </div>
 
         <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
           <h3 className="text-xl font-bold text-gray-900 mb-2">Alpha Lipoic Acid</h3>
-          <p className="text-lg">This is a powerhouse antioxidant. Unlike others, it can actually reach the nerve cells directly, helping to repair and protect damaged nerve fibers from oxidative stress.</p>
+          <p className="text-lg">A powerhouse antioxidant that reaches nerve cells directly, helping to repair damaged fibers.</p>
         </div>
 
         <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
           <h3 className="text-xl font-bold text-gray-900 mb-2">Magnesium Glycinate</h3>
-          <p className="text-lg">Most of us are deficient in this. It calms erratic nerve firing and helps relax the muscles, which finally allowed me to sleep through the night without those "electric shocks."</p>
+          <p className="text-lg">Calms erratic nerve firing and relaxes muscles, allowing for truly restful sleep.</p>
         </div>
 
         <div className="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
-          <h3 className="text-xl font-bold text-gray-900 mb-2">Turmeric Extract (Curcumin)</h3>
-          <p className="text-lg">By tackling underlying systemic inflammation, Turmeric helps reduce the pressure on your nervous system, allowing for faster recovery and less daily discomfort.</p>
+          <h3 className="text-xl font-bold text-gray-900 mb-2">Turmeric Extract</h3>
+          <p className="text-lg">Tackles underlying inflammation, reducing the daily pressure on your nervous system.</p>
         </div>
       </div>
 
@@ -36,8 +36,8 @@ export const ScienceSection: React.FC = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Life After Relief: The Joy of Reconnection</h2>
         <div className="space-y-2">
           <AIImage 
-            prompt="A high quality, realistic close-up photo of an elderly woman's hand (around 64 years old) gently and lovingly holding a 3-year-old child's small hand. The lighting is warm and golden, like a sunset in a garden. Emotional, detailed skin texture, professional macro photography."
-            alt="Close up of Sarah holding her granddaughter's hand" 
+            prompt="Close-up of a grandmother's hand gently and securely holding a young child's hand. Warm golden hour lighting, emotional atmosphere, high detail on skin texture, cinematic photography."
+            alt="The joy of physical connection" 
             className="w-full h-[300px]"
             aspectRatio="16:9"
           />

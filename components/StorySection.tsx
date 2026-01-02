@@ -7,13 +7,13 @@ export const StorySection: React.FC = () => {
     <div className="article-body text-gray-800 space-y-8">
       <div className="space-y-2">
         <AIImage 
-          prompt="A high quality, realistic photo of a 64-year-old woman named Sarah Jenkins with gray hair, looking happy and vibrant, wearing a light blue cardigan, standing in a sunlit beautiful flower garden with blooming roses. Soft natural lighting, professional photography, warm atmosphere."
-          alt="Sarah Jenkins enjoying her garden again" 
+          prompt="An elegant 64-year-old woman with soft gray hair, wearing a cozy knit cardigan, smiling peacefully in a lush, sun-drenched flower garden filled with roses. Shallow depth of field, vibrant colors, 8k resolution, photorealistic."
+          alt="Finding peace in the garden" 
           className="w-full h-[300px] md:h-[450px]"
           aspectRatio="16:9"
         />
         <p className="text-sm text-gray-500 italic text-center">
-          Sarah Jenkins, 64, finally enjoying her mornings in the garden after years of limitations.
+          Rediscovering the simple joy of a morning in the garden.
         </p>
       </div>
 
