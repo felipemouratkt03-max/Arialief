@@ -18,6 +18,10 @@ const App: React.FC = () => {
       }
     };
     checkKey();
+    
+    // Polling opcional para detectar quando a chave é selecionada
+    const interval = setInterval(checkKey, 2000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -25,8 +29,14 @@ const App: React.FC = () => {
       <Header />
       
       {!hasKey && (
-        <div className="w-full bg-blue-600 text-white py-2 px-4 text-center text-xs font-bold animate-pulse">
-          Cinematic Story Visuals Enabled: <button onClick={() => window.aistudio.openSelectKey()} className="underline ml-1">Connect your API Key to view.</button>
+        <div className="w-full bg-blue-700 text-white py-2.5 px-4 text-center text-[11px] font-bold shadow-md z-40">
+          <span className="opacity-90">Experience the story with cinematic visuals:</span>
+          <button 
+            onClick={() => window.aistudio.openSelectKey()} 
+            className="ml-2 bg-white text-blue-700 px-3 py-1 rounded-full hover:bg-blue-50 transition-colors uppercase tracking-tight"
+          >
+            Enable Images
+          </button>
         </div>
       )}
 
