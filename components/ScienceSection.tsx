@@ -36,7 +36,7 @@ export const ScienceSection: React.FC = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Life After Relief: The Joy of Reconnection</h2>
         <div className="space-y-2">
           <AIImage 
-            prompt="Close-up of a grandmother's hand gently and securely holding a young child's hand. Warm golden hour lighting, emotional atmosphere, high detail on skin texture, cinematic photography."
+            prompt="Two people holding hands warmly, soft lighting, emotional atmosphere, high detail, cinematic photography"
             alt="The joy of physical connection" 
             className="w-full h-[300px]"
             aspectRatio="16:9"
