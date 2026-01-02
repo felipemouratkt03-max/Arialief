@@ -1,14 +1,21 @@
 
 import React from 'react';
+import { AIImage } from './AIImage';
 
 export const StorySection: React.FC = () => {
   return (
     <div className="article-body text-gray-800 space-y-8">
-      <img 
-        src="https://picsum.photos/id/453/800/450" 
-        alt="Happy older woman in a garden" 
-        className="rounded-xl shadow-md mb-8 w-full object-cover h-[300px] md:h-[450px]"
-      />
+      <div className="space-y-2">
+        <AIImage 
+          prompt="A high quality, realistic photo of a 64-year-old woman named Sarah Jenkins with gray hair, looking happy and vibrant, wearing a light blue cardigan, standing in a sunlit beautiful flower garden with blooming roses. Soft natural lighting, professional photography, warm atmosphere."
+          alt="Sarah Jenkins enjoying her garden again" 
+          className="w-full h-[300px] md:h-[450px]"
+          aspectRatio="16:9"
+        />
+        <p className="text-sm text-gray-500 italic text-center">
+          Sarah Jenkins, 64, finally enjoying her mornings in the garden after years of limitations.
+        </p>
+      </div>
 
       <section>
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">The Daily Struggle: When Every Step Feels Like Glass</h2>

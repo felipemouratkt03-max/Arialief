@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { AIImage } from './AIImage';
 
 export const ScienceSection: React.FC = () => {
   return (
@@ -33,12 +34,18 @@ export const ScienceSection: React.FC = () => {
 
       <section className="mt-12">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Life After Relief: The Joy of Reconnection</h2>
-        <img 
-          src="https://picsum.photos/id/325/800/450" 
-          alt="Hands holding each other" 
-          className="rounded-xl shadow-md mb-8 w-full object-cover h-[300px]"
-        />
-        <p>
+        <div className="space-y-2">
+          <AIImage 
+            prompt="A high quality, realistic close-up photo of an elderly woman's hand (around 64 years old) gently and lovingly holding a 3-year-old child's small hand. The lighting is warm and golden, like a sunset in a garden. Emotional, detailed skin texture, professional macro photography."
+            alt="Close up of Sarah holding her granddaughter's hand" 
+            className="w-full h-[300px]"
+            aspectRatio="16:9"
+          />
+          <p className="text-sm text-gray-500 italic text-center">
+            "The best part was being able to hold my granddaughter's hand and actually feel her touch again."
+          </p>
+        </div>
+        <p className="mt-8">
           Within a few weeks, the "fire" in my feet began to cool to a dull hum. Then, slowly, the feeling in my fingers started to return. I’ll never forget the morning I woke up and realized I hadn't been jolted awake once during the night. 
         </p>
         <p className="mt-4">
