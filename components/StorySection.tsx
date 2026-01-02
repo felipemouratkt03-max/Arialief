@@ -7,7 +7,7 @@ export const StorySection: React.FC = () => {
     <div className="article-body text-gray-800 space-y-8">
       <div className="space-y-2">
         <AIImage 
-          prompt="An elegant 64-year-old woman with soft gray hair, wearing a cozy knit cardigan, smiling peacefully in a lush, sun-drenched flower garden filled with roses. Shallow depth of field, vibrant colors, 8k resolution, photorealistic."
+          prompt="A happy senior woman sitting in a beautiful sunny garden with colorful flowers, peaceful atmosphere, high quality photography"
           alt="Finding peace in the garden" 
           className="w-full h-[300px] md:h-[450px]"
           aspectRatio="16:9"
