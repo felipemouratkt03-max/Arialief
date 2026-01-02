@@ -7,11 +7,9 @@ export const CONFIG = {
   // Link de Afiliado (Botão de Compra)
   affiliateLink: "https://bg.arialief.com/vd/?aff_id=47003",
 
-  // Imagens do Site (Links do Unsplash - use links diretos)
+  // Imagens do Site (Links do Unsplash - correspondendo ao visual solicitado)
   images: {
-    // Imagem principal do topo
-    hero: "https://images.unsplash.com/photo-1444491741275-3747c53c99b4?auto=format&fit=crop&q=80&w=1200",
-    
-    // Deixe vazio "" se quiser remover ou adicione novos links se desejar reativar imagens no futuro
+    // Imagem principal do topo - Mulher sentada em paz na grama ao pôr do sol
+    hero: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=1200",
   }
 };
