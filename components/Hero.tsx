@@ -19,6 +19,8 @@ export const Hero: React.FC = () => {
         <div className="mt-8 md:mt-10 max-w-3xl mx-auto px-2">
           <a 
             href={CONFIG.affiliateLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="block relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white bg-slate-100 ring-1 ring-slate-100 group"
           >
             <img 

@@ -48,6 +48,8 @@ export const ScienceSection: React.FC = () => {
           <div className="pt-8 text-center">
             <a 
               href={CONFIG.affiliateLink} 
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-black text-base px-10 py-4 rounded-xl transition-all duration-300 shadow-xl hover:-translate-y-1"
             >
               Check Availability & Pricing →

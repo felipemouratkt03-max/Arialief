@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { CONFIG } from '../config';
 
 export const Header: React.FC = () => {
   return (
@@ -13,10 +14,19 @@ export const Header: React.FC = () => {
           </div>
           <span className="font-black text-slate-900 text-xl tracking-tight">NerveHealth <span className="text-green-600">Insights</span></span>
         </div>
-        <div className="hidden sm:flex items-center space-x-8 text-[11px] font-black text-slate-400 uppercase tracking-widest">
-          <span className="hover:text-slate-900 transition-colors cursor-pointer">Stories</span>
-          <span className="hover:text-slate-900 transition-colors cursor-pointer">Science</span>
-          <span className="hover:text-slate-900 transition-colors cursor-pointer">Community</span>
+        <div className="flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-8 text-[11px] font-black text-slate-400 uppercase tracking-widest mr-4">
+            <span className="hover:text-slate-900 transition-colors cursor-pointer">Stories</span>
+            <span className="hover:text-slate-900 transition-colors cursor-pointer">Science</span>
+          </div>
+          <a 
+            href={CONFIG.affiliateLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-600 hover:bg-green-500 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2.5 rounded-lg transition-all shadow-md hover:shadow-lg active:scale-95"
+          >
+            Get Relief
+          </a>
         </div>
       </div>
     </header>
