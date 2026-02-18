@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { CONFIG } from '../config';
+import { CtaButton } from './CtaButton.tsx';
 
 export const FinalCTA: React.FC = () => {
   return (
@@ -13,14 +14,7 @@ export const FinalCTA: React.FC = () => {
           Take the first step toward reclaiming your life today. Join thousands who have found relief with our natural formula.
         </p>
         <div className="pt-4">
-          <a 
-            href={CONFIG.affiliateLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block w-full sm:w-auto bg-green-600 hover:bg-green-500 text-white font-black text-2xl px-12 py-6 rounded-2xl transition-all duration-300 shadow-[0_20px_50px_rgba(22,163,74,0.3)] transform hover:-translate-y-2 text-center"
-          >
-            YES! I WANT RELIEF NOW →
-          </a>
+          <CtaButton text="YES! I WANT RELIEF NOW →" size="xl" className="w-full sm:w-auto" />
         </div>
         <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">
           100% Satisfaction Guarantee • Secure Checkout

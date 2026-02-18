@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { CONFIG } from '../config';
+import { CtaButton } from './CtaButton.tsx';
 
 export const CTASection: React.FC = () => {
   return (
@@ -16,22 +17,8 @@ export const CTASection: React.FC = () => {
         </p>
         
         <div className="relative z-20 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a 
-            href={CONFIG.affiliateLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto bg-green-500 hover:bg-green-400 text-white font-black text-lg px-8 py-4 rounded-xl transition-all duration-300 shadow-[0_10px_30px_rgba(34,197,94,0.3)] transform hover:-translate-y-1 text-center cursor-pointer relative z-30"
-          >
-            GET RELIEF NOW →
-          </a>
-          <a 
-            href={CONFIG.affiliateLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto bg-transparent border-2 border-white/20 hover:border-white/40 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 text-center cursor-pointer relative z-30"
-          >
-            Watch Video
-          </a>
+          <CtaButton text="GET RELIEF NOW →" size="lg" className="w-full sm:w-auto" />
+          <CtaButton text="Watch Video" variant="outline" size="lg" className="w-full sm:w-auto !text-white !border-white/20 hover:!border-white/40" />
         </div>
         
         <p className="mt-8 text-[9px] text-slate-500 font-bold tracking-[0.2em] relative z-10 uppercase opacity-60">

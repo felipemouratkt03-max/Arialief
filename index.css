@@ -12,6 +12,15 @@
   }
 }
 
+@keyframes pulse-subtle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s infinite ease-in-out;
+}
+
 @layer components {
   .article-body {
     font-family: var(--font-serif);

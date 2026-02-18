@@ -16,12 +16,12 @@ export const Hero: React.FC = () => {
       </p>
       
       {CONFIG.images.hero && (
-        <div className="mt-8 md:mt-10 max-w-3xl mx-auto px-2">
+        <div className="mt-8 md:mt-10 max-w-3xl mx-auto px-2 relative z-20">
           <a 
             href={CONFIG.affiliateLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="block relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white bg-slate-100 ring-1 ring-slate-100 group cursor-pointer"
+            className="block relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white bg-slate-100 ring-1 ring-slate-100 group cursor-pointer active:scale-[0.98] transition-all"
           >
             <img 
               src={CONFIG.images.hero} 

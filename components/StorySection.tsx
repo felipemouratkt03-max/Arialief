@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { CONFIG } from '../config';
+import { CtaButton } from './CtaButton.tsx';
 
 export const StorySection: React.FC = () => {
   return (
@@ -48,14 +49,7 @@ export const StorySection: React.FC = () => {
             She told me about a specific, science-backed approach she’d discovered—one that used natural compounds to calm the overactive nerves and actually support the nerve fibers from the inside out. For the first time in years, I felt a flicker of real hope.
           </p>
           <div className="pt-6">
-            <a 
-              href={CONFIG.affiliateLink} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-green-600 hover:bg-green-500 text-white font-black text-sm px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:-translate-y-0.5 cursor-pointer"
-            >
-              SEE THE NATURAL SOLUTION →
-            </a>
+            <CtaButton text="SEE THE NATURAL SOLUTION →" size="md" />
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { CONFIG } from '../config';
+import { CtaButton } from './CtaButton.tsx';
 
 export const ScienceSection: React.FC = () => {
   return (
@@ -46,14 +47,7 @@ export const ScienceSection: React.FC = () => {
             Now, I’m back in my garden every morning. I’m walking two miles a day. And most importantly, I’m not living in fear of my own body anymore.
           </p>
           <div className="pt-8 text-center">
-            <a 
-              href={CONFIG.affiliateLink} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-black text-base px-10 py-4 rounded-xl transition-all duration-300 shadow-xl hover:-translate-y-1 cursor-pointer"
-            >
-              Check Availability & Pricing →
-            </a>
+            <CtaButton text="Check Availability & Pricing →" variant="secondary" size="lg" />
           </div>
         </div>
       </section>
