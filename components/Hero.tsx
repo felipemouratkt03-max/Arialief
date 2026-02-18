@@ -17,16 +17,21 @@ export const Hero: React.FC = () => {
       
       {CONFIG.images.hero && (
         <div className="mt-8 md:mt-10 max-w-3xl mx-auto px-2">
-          <div className="relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white bg-slate-100 ring-1 ring-slate-100">
+          <a 
+            href={CONFIG.affiliateLink}
+            className="block relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white bg-slate-100 ring-1 ring-slate-100 group"
+          >
             <img 
               src={CONFIG.images.hero} 
               alt="Peaceful relief in nature" 
-              className="w-full h-[220px] md:h-[320px] object-cover transition-opacity duration-700"
+              className="w-full h-[220px] md:h-[320px] object-cover transition-all duration-700 group-hover:scale-105"
               onLoad={(e) => (e.currentTarget.style.opacity = '1')}
               style={{ opacity: 0 }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
-          </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
+              <span className="text-white font-bold text-sm bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full">Click to Learn More</span>
+            </div>
+          </a>
         </div>
       )}
     </section>
