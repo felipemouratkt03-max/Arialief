@@ -52,7 +52,7 @@ export const StorySection: React.FC = () => {
               href={CONFIG.affiliateLink} 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-green-600 hover:bg-green-500 text-white font-black text-sm px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+              className="inline-block bg-green-600 hover:bg-green-500 text-white font-black text-sm px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:-translate-y-0.5 cursor-pointer"
             >
               SEE THE NATURAL SOLUTION →
             </a>

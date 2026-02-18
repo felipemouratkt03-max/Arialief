@@ -27,7 +27,7 @@ export const StickyCTA: React.FC = () => {
         href={CONFIG.affiliateLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="block w-full bg-green-500 text-white font-black text-center py-4 rounded-2xl shadow-[0_10px_40px_rgba(34,197,94,0.4)] active:scale-95 transition-transform"
+        className="block w-full bg-green-500 text-white font-black text-center py-4 rounded-2xl shadow-[0_10px_40px_rgba(34,197,94,0.4)] active:scale-95 transition-transform cursor-pointer"
       >
         RECLAIM YOUR MOBILITY NOW →
       </a>

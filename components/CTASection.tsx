@@ -15,12 +15,12 @@ export const CTASection: React.FC = () => {
           Join the thousands of men and women who have reclaimed their mobility and peace of mind using this science-backed, natural nerve support formula.
         </p>
         
-        <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="relative z-20 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a 
             href={CONFIG.affiliateLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto bg-green-500 hover:bg-green-400 text-white font-black text-lg px-8 py-4 rounded-xl transition-all duration-300 shadow-[0_10px_30px_rgba(34,197,94,0.3)] transform hover:-translate-y-1 text-center"
+            className="w-full sm:w-auto bg-green-500 hover:bg-green-400 text-white font-black text-lg px-8 py-4 rounded-xl transition-all duration-300 shadow-[0_10px_30px_rgba(34,197,94,0.3)] transform hover:-translate-y-1 text-center cursor-pointer relative z-30"
           >
             GET RELIEF NOW →
           </a>
@@ -28,7 +28,7 @@ export const CTASection: React.FC = () => {
             href={CONFIG.affiliateLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto bg-transparent border-2 border-white/20 hover:border-white/40 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 text-center"
+            className="w-full sm:w-auto bg-transparent border-2 border-white/20 hover:border-white/40 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 text-center cursor-pointer relative z-30"
           >
             Watch Video
           </a>

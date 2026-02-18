@@ -50,7 +50,7 @@ export const ScienceSection: React.FC = () => {
               href={CONFIG.affiliateLink} 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-black text-base px-10 py-4 rounded-xl transition-all duration-300 shadow-xl hover:-translate-y-1"
+              className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-black text-base px-10 py-4 rounded-xl transition-all duration-300 shadow-xl hover:-translate-y-1 cursor-pointer"
             >
               Check Availability & Pricing →
             </a>

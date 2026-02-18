@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#fdfdfd] text-slate-900 antialiased;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  .article-body {
+    font-family: var(--font-serif);
+    @apply text-lg md:text-xl leading-relaxed text-slate-700;
+  }
+}

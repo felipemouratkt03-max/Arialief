@@ -21,7 +21,7 @@ export const Hero: React.FC = () => {
             href={CONFIG.affiliateLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="block relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white bg-slate-100 ring-1 ring-slate-100 group"
+            className="block relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white bg-slate-100 ring-1 ring-slate-100 group cursor-pointer"
           >
             <img 
               src={CONFIG.images.hero} 

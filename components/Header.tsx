@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
             href={CONFIG.affiliateLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-green-600 hover:bg-green-500 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2.5 rounded-lg transition-all shadow-md hover:shadow-lg active:scale-95"
+            className="bg-green-600 hover:bg-green-500 text-white text-[10px] font-black uppercase tracking-widest px-4 py-2.5 rounded-lg transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
           >
             Get Relief
           </a>

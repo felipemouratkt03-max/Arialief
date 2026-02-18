@@ -6,6 +6,7 @@ import { ScienceSection } from './components/ScienceSection.tsx';
 import { CTASection } from './components/CTASection.tsx';
 import { Footer } from './components/Footer.tsx';
 import { StickyCTA } from './components/StickyCTA.tsx';
+import { FinalCTA } from './components/FinalCTA.tsx';
 
 const App: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         </div>
       </main>
 
+      <FinalCTA />
       <Footer />
       <StickyCTA />
     </div>
