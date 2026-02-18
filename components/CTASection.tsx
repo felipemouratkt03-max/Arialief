@@ -15,16 +15,22 @@ export const CTASection: React.FC = () => {
           Join the thousands of men and women who have reclaimed their mobility and peace of mind using this science-backed, natural nerve support formula.
         </p>
         
-        <div className="relative z-10">
+        <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a 
             href={CONFIG.affiliateLink}
-            className="inline-block w-full sm:w-auto bg-green-600 hover:bg-green-500 text-white font-black text-xl px-8 py-4 rounded-xl transition-all duration-300 shadow-[0_10px_30px_rgba(22,163,74,0.2)] transform hover:-translate-y-1"
+            className="w-full sm:w-auto bg-green-500 hover:bg-green-400 text-white font-black text-lg px-8 py-4 rounded-xl transition-all duration-300 shadow-[0_10px_30px_rgba(34,197,94,0.3)] transform hover:-translate-y-1 text-center"
           >
-            YES — I Want to Try This Formula
+            GET RELIEF NOW →
+          </a>
+          <a 
+            href={CONFIG.affiliateLink}
+            className="w-full sm:w-auto bg-transparent border-2 border-white/20 hover:border-white/40 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 text-center"
+          >
+            Watch Video
           </a>
         </div>
         
-        <p className="mt-8 text-[10px] text-slate-500 font-medium tracking-widest relative z-10 uppercase">
+        <p className="mt-8 text-[9px] text-slate-500 font-bold tracking-[0.2em] relative z-10 uppercase opacity-60">
           Official Research and Ordering Page
         </p>
       </div>

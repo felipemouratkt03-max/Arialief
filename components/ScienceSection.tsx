@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { CONFIG } from '../config';
 
 export const ScienceSection: React.FC = () => {
   return (
@@ -44,6 +45,14 @@ export const ScienceSection: React.FC = () => {
           <p>
             Now, I’m back in my garden every morning. I’m walking two miles a day. And most importantly, I’m not living in fear of my own body anymore.
           </p>
+          <div className="pt-8 text-center">
+            <a 
+              href={CONFIG.affiliateLink} 
+              className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-black text-base px-10 py-4 rounded-xl transition-all duration-300 shadow-xl hover:-translate-y-1"
+            >
+              Check Availability & Pricing →
+            </a>
+          </div>
         </div>
       </section>
     </div>
