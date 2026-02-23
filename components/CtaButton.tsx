@@ -15,10 +15,10 @@ export const CtaButton: React.FC<CtaButtonProps> = ({
   variant = 'primary',
   size = 'md'
 }) => {
-  const baseStyles = "inline-flex items-center justify-center font-black uppercase tracking-widest transition-all duration-300 transform hover:-translate-y-1 active:scale-95 cursor-pointer relative z-[60]";
+  const baseStyles = "inline-flex items-center justify-center font-black uppercase tracking-widest transition-all duration-300 transform hover:-translate-y-1 active:scale-95 cursor-pointer relative";
   
   const variants = {
-    primary: "bg-green-500 hover:bg-green-400 text-white shadow-[0_10px_40px_rgba(34,197,94,0.4)] hover:shadow-[0_15px_50px_rgba(34,197,94,0.5)] animate-pulse-subtle",
+    primary: "bg-green-500 hover:bg-green-400 text-white shadow-lg",
     secondary: "bg-slate-900 hover:bg-slate-800 text-white shadow-xl",
     outline: "bg-transparent border-2 border-slate-200 hover:border-slate-900 text-slate-900 hover:bg-slate-50"
   };
@@ -30,14 +30,22 @@ export const CtaButton: React.FC<CtaButtonProps> = ({
     xl: "px-12 py-6 text-xl rounded-[2rem]"
   };
 
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.open(CONFIG.affiliateLink, '_blank', 'noopener,noreferrer');
+    console.log('CTA Clicked (forced):', CONFIG.affiliateLink);
+  };
+
   return (
-    <a 
-      href={CONFIG.affiliateLink}
-      target="_blank"
-      rel="noopener noreferrer"
+    <button 
+      onClick={handleClick}
       className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+      style={{ 
+        display: className.includes('w-full') ? 'flex' : 'inline-flex',
+        minWidth: 'fit-content'
+      }}
     >
       {text}
-    </a>
+    </button>
   );
 };

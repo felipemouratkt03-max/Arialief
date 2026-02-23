@@ -17,11 +17,9 @@ export const Hero: React.FC = () => {
       
       {CONFIG.images.hero && (
         <div className="mt-8 md:mt-10 max-w-3xl mx-auto px-2 relative z-20">
-          <a 
-            href={CONFIG.affiliateLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white bg-slate-100 ring-1 ring-slate-100 group cursor-pointer active:scale-[0.98] transition-all"
+          <button 
+            onClick={() => window.open(CONFIG.affiliateLink, '_blank', 'noopener,noreferrer')}
+            className="block w-full relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white bg-slate-100 ring-1 ring-slate-100 group cursor-pointer active:scale-[0.98] transition-all text-left"
           >
             <img 
               src={CONFIG.images.hero} 
@@ -33,7 +31,7 @@ export const Hero: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
               <span className="text-white font-bold text-sm bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full">Click to Learn More</span>
             </div>
-          </a>
+          </button>
         </div>
       )}
     </section>
