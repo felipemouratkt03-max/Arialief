@@ -4,7 +4,7 @@
  */
 export const CONFIG = {
   // Link de Afiliado (Botão de Compra)
-  affiliateLink: "https://nervehealth.brasmed.blog/",
+  affiliateLink: "https://bg.arialief.com/vd/?aff_id=47003",
 
   // Imagens do Site (Links de alta qualidade que correspondem à estética enviada)
   images: {
